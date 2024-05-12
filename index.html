@@ -1,0 +1,1675 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+<!-- Mirrored from html.hixstudio.net/Dsquare-prev/Dsquare/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 May 2024 14:49:17 GMT -->
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title>Dsquare - Personal Creative Portfolio & Resume HTML Template</title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Place favicon.ico in the root directory -->
+   <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/favicon.png">
+
+   <!-- CSS here -->
+   <link rel="stylesheet" href="assets/css/bootstrap.css">
+   <link rel="stylesheet" href="assets/css/animate.css">
+   <link rel="stylesheet" href="assets/css/custom-animation.css">
+   <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+   <link rel="stylesheet" href="assets/css/slick.css">
+   <link rel="stylesheet" href="assets/css/magnific-popup.css">
+   <link rel="stylesheet" href="assets/css/font-awesome-pro.css">
+   <link rel="stylesheet" href="assets/css/spacing.css">
+   <link rel="stylesheet" href="assets/css/main.css">
+
+   <style>
+      html,
+      body {
+         scroll-behavior: smooth;
+      }
+   </style>
+</head>
+
+<body id="body" class="tp-magic-cursor">
+
+   <style>
+      * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+      }
+
+      /*body {*/
+      /*    height: 200vh;*/
+      /*}*/
+
+      .no-scroll-y {
+         overflow-y: hidden;
+      }
+
+      /* Preloader */
+      .ctn-preloader {
+         align-items: center;
+         cursor: none;
+         display: flex;
+         height: 100%;
+         justify-content: center;
+         position: fixed;
+         left: 0;
+         top: 0;
+         width: 100%;
+         z-index: 900;
+      }
+
+      .ctn-preloader .animation-preloader {
+         position: absolute;
+         z-index: 100;
+      }
+
+      /* Spinner cargando */
+      .ctn-preloader .animation-preloader .spinner {
+         animation: spinner 1s infinite linear;
+         border-radius: 50%;
+         border: 3px solid rgba(0, 0, 0, 0.2);
+         border-top-color: #BCE70C;
+         /* No se identa por orden alfabetico para que no lo sobre-escriba */
+         height: 9em;
+         margin: 0 auto 3.5em auto;
+         width: 9em;
+      }
+
+      /* Texto cargando */
+      .ctn-preloader .animation-preloader .txt-loading {
+         font: bold 5em 'Montserrat', sans-serif;
+         text-align: center;
+         user-select: none;
+      }
+
+      .ctn-preloader .animation-preloader .txt-loading .letters-loading:before {
+         animation: letters-loading 4s infinite;
+         color: #BCE70C;
+         content: attr(data-text-preloader);
+         left: 0;
+         opacity: 0;
+         position: absolute;
+         top: 0;
+         transform: rotateY(-90deg);
+      }
+
+      .ctn-preloader .animation-preloader .txt-loading .letters-loading {
+         color: #23301C;
+         position: relative;
+      }
+
+      .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
+         animation-delay: 0.2s;
+      }
+
+      .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
+         animation-delay: 0.4s;
+      }
+
+      .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
+         animation-delay: 0.6s;
+      }
+
+      .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
+         animation-delay: 0.8s;
+      }
+
+      .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
+         animation-delay: 1s;
+      }
+
+      .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
+         animation-delay: 1.2s;
+      }
+
+      .ctn-preloader .loader-section {
+         background-color: #141414;
+         height: 100%;
+         position: fixed;
+         top: 0;
+         width: calc(50% + 1px);
+      }
+
+      .ctn-preloader .loader-section.section-left {
+         left: 0;
+      }
+
+      .ctn-preloader .loader-section.section-right {
+         right: 0;
+      }
+
+      /* Efecto de fade en la animación de cargando */
+      .loaded .animation-preloader {
+         opacity: 0;
+         transition: 0.3s ease-out;
+      }
+
+      /* Efecto de cortina */
+      .loaded .loader-section.section-left {
+         transform: translateX(-101%);
+         transition: 0.7s 0.3s all cubic-bezier(0.1, 0.1, 0.1, 1.000);
+      }
+
+      .loaded .loader-section.section-right {
+         transform: translateX(101%);
+         transition: 0.7s 0.3s all cubic-bezier(0.1, 0.1, 0.1, 1.000);
+      }
+
+      /* Animación del preloader */
+      @keyframes spinner {
+         to {
+            transform: rotateZ(360deg);
+         }
+      }
+
+      /* Animación de las letras cargando del preloader */
+      @keyframes letters-loading {
+
+         0%,
+         75%,
+         100% {
+            opacity: 0;
+            transform: rotateY(-90deg);
+         }
+
+         25%,
+         50% {
+            opacity: 1;
+            transform: rotateY(0deg);
+         }
+      }
+
+      /* Tamaño de portatil hacia atras (portatil, tablet, celular) */
+      @media screen and (max-width: 767px) {
+
+         /* Preloader */
+         /* Spinner cargando */
+         .ctn-preloader .animation-preloader .spinner {
+            height: 8em;
+            width: 8em;
+         }
+
+         /* Texto cargando */
+         .ctn-preloader .animation-preloader .txt-loading {
+            font: bold 3.5em 'Montserrat', sans-serif;
+         }
+      }
+
+      @media screen and (max-width: 500px) {
+
+         /* Prelaoder */
+         /* Spinner cargando */
+         .ctn-preloader .animation-preloader .spinner {
+            height: 7em;
+            width: 7em;
+         }
+
+         /* Texto cargando */
+         .ctn-preloader .animation-preloader .txt-loading {
+            font: bold 2em 'Montserrat', sans-serif;
+         }
+      }
+   </style>
+
+   <section>
+      <div id="preloader">
+         <div id="ctn-preloader" class="ctn-preloader">
+            <div class="animation-preloader">
+               <div class="spinner"></div>
+               <div class="txt-loading">
+                  <span data-text-preloader="L" class="letters-loading">
+                     L
+                  </span>
+
+                  <span data-text-preloader="O" class="letters-loading">
+                     O
+                  </span>
+
+                  <span data-text-preloader="A" class="letters-loading">
+                     A
+                  </span>
+
+                  <span data-text-preloader="D" class="letters-loading">
+                     D
+                  </span>
+
+                  <span data-text-preloader="I" class="letters-loading">
+                     I
+                  </span>
+
+                  <span data-text-preloader="N" class="letters-loading">
+                     N
+                  </span>
+
+                  <span data-text-preloader="G" class="letters-loading">
+                     G
+                  </span>
+               </div>
+            </div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+         </div>
+      </div>
+   </section>
+
+
+   <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+      <![endif]-->
+
+
+   <!-- Begin magic cursor 
+   ======================== -->
+   <div id="magic-cursor">
+      <div id="ball"></div>
+   </div>
+   <!-- End magic cursor -->
+
+
+   <!-- back to top start -->
+   <div class="back-to-top-wrapper">
+      <button id="back_to_top" type="button" class="back-to-top-btn">
+         <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 6L6 1L1 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+               stroke-linejoin="round" />
+         </svg>
+      </button>
+   </div>
+   <!-- back to top end -->
+
+   <!-- tp-offcanvus-area-end -->
+   <div class="tp-offcanvas-area-2 tp-menu-2">
+      <div class="tp-offcanvas-shape">
+         <img class="tp-offcanvas-shape-2" src="assets/img/offcanvas/bg-shape-3.png" alt="">
+      </div>
+      <div class="tp-offcanvas-circle-1">
+         <span></span>
+      </div>
+      <div class="tp-offcanvas-circle-2">
+         <span></span>
+      </div>
+      <div class="tp-offcanvas-wrapper">
+         <div class="tp-offcanvas-top-2 d-flex align-items-center justify-content-between">
+            <div class="tp-offcanvas-close-2">
+               <button class="tp-offcanvas-close-btn-2 tp-offcanvas-open-btn-2">
+                  <svg width="37" height="38" viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M9.19141 9.80762L27.5762 28.1924" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                     <path d="M9.19141 28.1924L27.5762 9.80761" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- header area start -->
+
+   <header>
+
+      <div class="tp-header-area tp-header-mob-space tp-header-transparent p-relative">
+         <span class="tp-header-border"></span>
+         <div class="container container-large">
+            <div class="tp-header-box p-relative">
+               <div class="row align-items-center">
+                  <div class="col-xl-2 col-lg-2 col-md-5 col-6">
+                     <div class="logo">
+                        <a class="logo-white" href="index.html">
+                           <img data-width="115" src="assets/img/logo/logo.png" alt="">
+                        </a>
+                        <!-- <a class="logo-black" href="index.html">
+                           <img data-width="115" src="assets/img/logo/logo-black.png" alt="">
+                        </a> -->
+                     </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-7 d-none d-lg-block">
+                     <div class="main-menu">
+                        <nav class="tp-main-menu-content">
+                           <ul>
+                              <li><a href="index.html">Home</a></li>
+                              <li><a href="#about">About Me</a></li>
+                              <li><a href="#services">Services</a></li>
+                              <li><a href="#skill">Skills & Tools</a></li>
+                              <li><a href="contact.html">Contact</a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-3 col-md-7 col-6">
+                     <div class="tp-header-right d-flex align-items-center justify-content-end">
+                        <div class="tp-header-cv ml-10 d-none d-md-block">
+                           <a class="tp-header-cv-btn" href="assets/img/cv/mycv.docx">
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M1 8C1 11.866 4.13401 15 8 15C11.866 15 15 11.866 15 8" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                                 <path d="M8 1L8 9.75M8 9.75L10.625 7.125M8 9.75L5.375 7.125" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                           </a>
+                        </div>
+                        <!-- <div class="tp-header-hamburger ml-20">
+                           <button class="tp-hamburger-btn tp-hamburger-btn-white tp-menu-bar tp-offcanvas-open-btn-2"
+                              type="button">
+                              <span></span>
+                           </button>
+                        </div> -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </header>
+   <!-- header area end -->
+
+   <!-- header area start -->
+   <header>
+
+      <div
+         class="tp-header-area tp-header-mob-space tp-header-transparent p-relative tp-int-menu tp-header-sticky-cloned">
+         <div class="container container-large">
+            <div class="tp-header-box p-relative">
+               <div class="row align-items-center">
+                  <div class="col-xl-2 col-lg-2 col-md-5 col-6">
+                     <div class="logo">
+                        <a class="logo-white" href="index.html">
+                           <img data-width="115" src="assets/img/logo/logo.png" alt="">
+                        </a>
+                        <a class="logo-black" href="index.html">
+                           <img data-width="115" src="assets/img/logo/logo-black.png" alt="">
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-7 d-none d-lg-block">
+                     <div class="main-menu">
+                        <nav class="tp-main-menu-content">
+                           <ul>
+                              <li><a href="index.html">Home</a></li>
+                              <li><a href="about-me.html">About Me</a></li>
+                              <li><a href="#services">Services</a></li>
+                              <li><a href="#skill">Skills & Tools</a></li>
+                              <li><a href="contact.html">Contact</a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-3 col-md-7 col-6">
+                     <div class="tp-header-right d-flex align-items-center justify-content-end">
+                        <div class="tp-theme-toggle">
+                           <label>
+                              <span class=" tp-theme-toggle-light">
+                                 <!-- <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                       d="M8.0448 11.0454C9.70165 11.0454 11.0448 9.7023 11.0448 8.04544C11.0448 6.38859 9.70165 5.04544 8.0448 5.04544C6.38795 5.04544 5.0448 6.38859 5.0448 8.04544C5.0448 9.7023 6.38795 11.0454 8.0448 11.0454Z"
+                                       fill="currentColor" />
+                                    <path d="M8 1.5V2.68182" stroke="currentColor" stroke-width="1.5"
+                                       stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M8 13.3182V14.5" stroke="currentColor" stroke-width="1.5"
+                                       stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M3.40198 3.40277L4.24107 4.24186" stroke="currentColor" stroke-width="1.5"
+                                       stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M11.7584 11.7581L12.5975 12.5972" stroke="currentColor" stroke-width="1.5"
+                                       stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M1.5 8H2.68182" stroke="currentColor" stroke-width="1.5"
+                                       stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M13.3174 8H14.4992" stroke="currentColor" stroke-width="1.5"
+                                       stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M3.40198 12.5972L4.24107 11.7581" stroke="currentColor" stroke-width="1.5"
+                                       stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M11.7584 4.24186L12.5975 3.40277" stroke="currentColor" stroke-width="1.5"
+                                       stroke-linecap="round" stroke-linejoin="round" />
+                                 </svg> -->
+                              </span>
+                              <input type="checkbox" class="themepure-theme-toggle-input" id="this-ss">
+                              <i class="tp-theme-toggle-slide"></i>
+                              <!-- <span class="tp-theme-toggle-dark">
+                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                       d="M12 6.54054C11.8949 7.67776 11.4681 8.76152 10.7696 9.66503C10.071 10.5685 9.12957 11.2544 8.05544 11.6424C6.9813 12.0304 5.81888 12.1044 4.70419 11.8559C3.5895 11.6073 2.56866 11.0465 1.7611 10.2389C0.953538 9.43135 0.39267 8.4105 0.144121 7.29581C-0.104428 6.18112 -0.0303768 5.0187 0.357609 3.94457C0.745595 2.87043 1.43147 1.929 2.33497 1.23045C3.23848 0.531888 4.32224 0.105093 5.45946 0C4.79365 0.900756 4.47327 2.01056 4.55656 3.12758C4.63986 4.24459 5.12132 5.2946 5.91336 6.08664C6.7054 6.87869 7.75541 7.36014 8.87242 7.44344C9.98944 7.52673 11.0992 7.20635 12 6.54054Z"
+                                       fill="currentColor" />
+                                 </svg>
+                              </span> -->
+                           </label>
+                        </div>
+                        <div class="tp-header-cv ml-10 d-none d-md-block">
+                           <a class="tp-header-cv-btn" href="assets/img/cv/mycv.docx">
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M1 8C1 11.866 4.13401 15 8 15C11.866 15 15 11.866 15 8" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" />
+                                 <path d="M8 1L8 9.75M8 9.75L10.625 7.125M8 9.75L5.375 7.125" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </header>
+   <!-- header area end -->
+
+   <!-- Scroll Smoother -->
+
+   <div id="smooth-wrapper" class="tp-page-wrapper theme-bg" data-background="assets/img/bg/distort-bg.png">
+      <div id="smooth-content">
+
+         <main>
+
+            <!-- hero area start -->
+            <section class="tp-hero-area p-relative tp-btn-trigger z-index-1 fix theme-bg-2">
+               <div class="tp-hero-social-wrapper">
+                  <span class="tp-hero-social-bar"></span>
+                  <div class="tp-hero-social">
+                     <a href="#">
+                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path
+                              d="M12.25 13.75H4.75C2.5 13.75 1 12.625 1 10V4.75C1 2.125 2.5 1 4.75 1L12.25 1C14.5 1 16 2.125 16 4.75V10C16 12.625 14.5 13.75 12.25 13.75Z"
+                              stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                           <path d="M12.25 5.12488L9.9025 6.99988C9.13 7.61488 7.8625 7.61488 7.09 6.99988L4.75 5.12488"
+                              stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                        </svg>
+                     </a>
+                     <a href="#">
+                        <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path
+                              d="M2.50589 12.2494C4.57662 15.836 9.16278 17.0648 12.7494 14.9941C14.2113 14.15 15.2816 12.888 15.8962 11.4461C16.7895 9.35066 16.7208 6.87526 15.4941 4.75063C14.2674 2.62599 12.1581 1.32872 9.89669 1.05462C8.34063 0.866 6.71259 1.16183 5.25063 2.00589C1.66403 4.07662 0.435172 8.66278 2.50589 12.2494Z"
+                              stroke="currentColor" stroke-width="1.5" />
+                           <path
+                              d="M12.712 14.9291C12.712 14.9291 12.0079 9.98655 10.5004 7.37547C8.99289 4.76439 5.28862 2.07143 5.28862 2.07143M5.68375 15.1123C6.79479 11.7605 12.3392 8.04512 16.3967 8.93525M12.3103 1.90808C11.1945 5.22332 5.75659 8.88441 1.71802 8.08903"
+                              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                     </a>
+                     <a href="#">
+                        <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path
+                              d="M1 5.50008H6.25009C7.52511 5.50008 8.50013 6.47509 8.50013 7.75012C8.50013 9.02514 7.52511 10.0002 6.25009 10.0002H1.75001C1.30001 10.0002 1 9.70015 1 9.25014V1.75001C1 1.30001 1.30001 1 1.75001 1H5.50008C6.7751 1 7.75012 1.97502 7.75012 3.25004C7.75012 4.52506 6.7751 5.50008 5.50008 5.50008H1Z"
+                              stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" />
+                           <path
+                              d="M9.99988 7.00005H16C16 5.35002 14.65 4 12.9999 4C11.3499 4 9.99988 5.35002 9.99988 7.00005ZM9.99988 7.00005C9.99988 8.65008 11.3499 10.0001 12.9999 10.0001H14.275"
+                              stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                           <path d="M14.1249 2.125H11.8749" stroke="currentColor" stroke-width="1.5"
+                              stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                     </a>
+                  </div>
+               </div>
+               <div class="tp-hero-shape">
+                  <div class="tp-hero-shape-1 background-white-mode" data-background="assets/img/hero/hero-overlay.png">
+                  </div>
+                  <div class="tp-hero-shape-1 background-dark-mode"
+                     data-background="assets/img/hero/hero-overlay-2.png"></div>
+                  <span class="tp-hero-shape-2"></span>
+               </div>
+               <div class="tp-hero-bottom-text-wrapper">
+                  <div class="tp-hero-bottom-text">
+                     <p>Visual designer</p>
+                     <p>Visual designer</p>
+                  </div>
+                  <div class="tp-hero-bottom-text">
+                     <p>Visual designer</p>
+                     <p>Visual designer</p>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="row align-items-end">
+                     <div class="col-xl-7 col-lg-7 col-md-12">
+                        <div class="tp-hero-left-wrapper">
+                           <div class="tp-hero-content tp_text_anim p-relative z-index-1">
+                              <span>Hello There! <img src="assets/img/hero/hero-hand.png" alt=""></span>
+                              <h3 class="tp-hero-title cd-headline clip tp_title_anim">
+                                 We Are Dsquare<br>
+                                 <span class="cd-words-wrapper">
+                                    <b class="is-visible">Web</b>
+                                    <!-- <b class="app">App</b> -->
+                                    <b>UX</b>
+                                 </span>
+                                 developers
+                              </h3>
+
+                              <p>The combination of my passion for design, code & <br> interaction web design world.</p>
+
+                              <div class="tp-hero-btn wrap ">
+                                 <div class="tp-hover-btn-wrapper tp-btn-bounce">
+                                    <a href="contact.html" class="tp-hover-btn tp-hover-btn-item tp-btn-circle square">
+                                       <span class="tp-btn-circle-text">
+                                          Get <br> In Touch
+                                       </span>
+                                       <span class="tp-btn-circle-arrow">
+                                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                             <path d="M11 1L1 11" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                             <path d="M2.98874 1.01725L10.9991 1L10.9826 9.01105" stroke="currentColor"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                          </svg>
+                                       </span>
+                                       <i class="tp-btn-circle-dot"></i>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="tp-hero-scroll smooth">
+                                 <a href=".html">
+                                    <span class="tp-hero-scroll-bar"></span>
+                                    <span class="tp-hero-scroll-mouse"></span>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-5 col-lg-5 col-md-12">
+                        <div class="tp-hero-thumb-wrapper text-center text-lg-end p-relative z-index-1">
+                           <div class="tp-hero-thumb-shape">
+                              <img class="tp-hero-thumb-shape-1" data-speed="1.4"
+                                 src="assets/img/hero/shape/hero-shape-1.png" alt="">
+                              <img class="tp-hero-thumb-shape-2 d-none d-xl-block" data-speed="1.2"
+                                 src="assets/img/hero/shape/hero-shape-2.png" alt="">
+                              <span class="tp-hero-thumb-shape-3"></span>
+                           </div>
+                           <div class="tp-hero-thumb">
+                              <img src="assets/img/hero/hero-img.png" alt="">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- hero area end -->
+
+            <!-- brand area start -->
+            <section class="tp-brand-area p-relative">
+               <span class="tp-brand-border transition-3"></span>
+               <div class="container container-large">
+                  <div class="tp-brand-inner p-relative">
+                     <span class="tp-brand-inner-border left tp-vertical-line"></span>
+                     <span class="tp-brand-inner-border right tp-vertical-line"></span>
+
+                     <div class="row align-items-center">
+                        <div class="col-xl-9 col-lg-9 col-md-7">
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- brand area end -->
+
+            <!-- service area start -->
+            <section class="tp-services-area tp-sv tp-services-bg-text-animation fix" id="services">
+               <div class="container container-large">
+                  <div class="tp-services-inner pb-195 p-relative z-index-1">
+
+                     <span class="tp-services-inner-border tp-vertical-line transition-3"></span>
+                     <span class="tp-services-inner-border right tp-vertical-line transition-3"></span>
+
+                     <div class="tp-services-bottom-text tp-services-bg-text ">
+                        <p>Services</p>
+                     </div>
+                     <div class="row gx-0">
+                        <div class="col-xl-6 col-lg-7">
+                           <div class="tp-services-wrapper tp-services-capsule-wrapper p-relative  pt-100 pr-70"
+                              data-tp-throwable-scene="true">
+                              <div class="tp-section-title-wrapper tp_text_anim mb-170">
+                                 <div class="tp-section-title-inner p-relative">
+                                    <span class="tp-section-subtitle">Services</span>
+                                    <h3 class="tp-section-title tp_title_anim">Solution <br> we provide.</h3>
+                                 </div>
+                                 <p>The combination of my passion for design, code & interaction web design world.</p>
+                              </div>
+                              <div class="tp-services-capsule-item-wrapper">
+                                 <p data-tp-throwable-el="">
+                                    <span class="tp-services-capsule-item" data-bg-color="#00CC97">Frontend</span>
+                                 </p>
+                                 <p data-tp-throwable-el="">
+                                    <span class="tp-services-capsule-item" data-bg-color="#FF759C">Backend</span>
+                                 </p>
+                                 <p data-tp-throwable-el="">
+                                    <span class="tp-services-capsule-item" data-bg-color="#FFDB59"
+                                       data-text-color="#121212">Design solutions</span>
+                                 </p>
+                                 <p data-tp-throwable-el="">
+                                    <span class="tp-services-capsule-item" data-bg-color="#FFDB59"
+                                       data-text-color="#121212">E-commerce</span>
+                                 </p>
+                                 <p data-tp-throwable-el="">
+                                    <span class="tp-services-capsule-item" data-bg-color="#00CC97">website
+                                       creation</span>
+                                 </p>
+                                 <p data-tp-throwable-el="">
+                                    <span class="tp-services-capsule-item" data-bg-color="#FFDB59"
+                                       data-text-color="#121212">web Development</span>
+                                 </p>
+                                 <p data-tp-throwable-el="">
+                                    <span class="tp-services-capsule-item" data-bg-color="#19B3F1">UI/UX Design</span>
+                                 </p>
+                                 <p data-tp-throwable-el="">
+                                    <span class="tp-services-capsule-item" data-bg-color="#FF759C">Design Audit</span>
+                                 </p>
+                                 <p data-tp-throwable-el="">
+                                    <span class="tp-services-capsule-item" data-bg-color="#FFDB59"
+                                       data-text-color="#121212">Testing</span>
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-5">
+                           <div class="tp-services-accordion tp-accordion tp-accordion-2 mt-90 pl-70 p-relative">
+                              <span class="tp-services-accordion-border"></span>
+                              <div class="accordion" id="accordionExample">
+                                 <div class="accordion-item tp-services-accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                       <button class="accordion-button collapsed" type="button"
+                                          data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                          aria-controls="collapseOne">
+                                          <span>01</span>
+                                          UI/UX Design
+                                       </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse"
+                                       aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                       <div class="accordion-body">
+                                          <p>Project systematization is something I place a lot of emphasis on. My
+                                             passion Design Systems. </p>
+                                          <ul>
+                                             <li>Interface design</li>
+                                             <li>Creating design systems</li>
+                                             <li>Ui kits</li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                    <span class="accordion-item-border"></span>
+                                 </div>
+                                 <div class="accordion-item tp-services-accordion-item active">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                       <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                          data-bs-target="#collapseTwo" aria-expanded="false"
+                                          aria-controls="collapseTwo">
+                                          <span>02</span>
+                                          Web development
+                                       </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse show"
+                                       aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                       <div class="accordion-body">
+                                          <p>Project systematization is something I place a lot of emphasis on. My
+                                             passion Design Systems. </p>
+                                          <ul>
+                                             <li>Interface design</li>
+                                             <li>Creating design systems</li>
+                                             <li>Ui kits</li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                    <span class="accordion-item-border"></span>
+                                 </div>
+                                 <div class="accordion-item tp-services-accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                       <button class="accordion-button collapsed" type="button"
+                                          data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                          aria-expanded="false" aria-controls="collapseThree">
+                                          <span>03</span>
+                                          Website Design
+                                       </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                       aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                       <div class="accordion-body">
+                                          <p>Project systematization is something I place a lot of emphasis on. My
+                                             passion Design Systems. </p>
+                                          <ul>
+                                             <li>Interface design</li>
+                                             <li>Creating design systems</li>
+                                             <li>Ui kits</li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                    <span class="accordion-item-border"></span>
+                                 </div>
+                                 <div class="accordion-item tp-services-accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                       <button class="accordion-button collapsed" type="button"
+                                          data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                          aria-controls="collapseFour">
+                                          <span>04</span>
+                                          E-commerce
+                                       </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                       aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                       <div class="accordion-body">
+                                          <p>Project systematization is something I place a lot of emphasis on. My
+                                             passion Design Systems. </p>
+                                          <ul>
+                                             <li>Interface design</li>
+                                             <li>Creating design systems</li>
+                                             <li>Ui kits</li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                    <span class="accordion-item-border"></span>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- service area end -->
+
+            <!-- marquee area start -->
+            <div class="tp-marquee-area z-index-5">
+               <div class="tp-marquee-wrapper">
+                  <div class="tp-marquee-slider fix">
+                     <div class="tp-marquee-slider-active d-flex align-items-center ">
+                        <div class="tp-marquee-item">
+                           <p>UI/UX design <img src="assets/img/marquee/smile.svg" alt=""></p>
+                        </div>
+                        <div class="tp-marquee-item">
+                           <p>Web designing<img src="assets/img/marquee/stroke.svg" alt=""></p>
+                        </div>
+                        <div class="tp-marquee-item">
+                           <p>Web development <img src="assets/img/marquee/smile.svg" alt=""></p>
+                        </div>
+                        <div class="tp-marquee-item">
+                           <p>Backend development<img src="assets/img/marquee/stroke.svg" alt=""></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- marquee area end -->
+
+            <!-- about area start -->
+            <section class="tp-about-area fix" id="about">
+               <div class="container container-large">
+                  <div class="tp-about-inner pt-145 pb-80">
+                     <span class="tp-about-inner-border transition-3"></span>
+                     <div class="row">
+                        <div class="col-xl-5 col-lg-5">
+                           <div class="tp-about-wrapper">
+                              <div class="tp-section-title-wrapper p-relative mb-45">
+                                 <span class="tp-section-subtitle-bg">About Us</span>
+                                 <span class="tp-section-subtitle tp-section-subtitle-1 tp-about-subtitle">About
+                                    Us</span>
+                              </div>
+                              <div class="tp-about-thumb-wrapper p-relative z-index-1">
+                                 <div class="tp-about-thumb p-relative z-index-1">
+                                    <div class="tp-about-thumb-bg-shape include-bg"
+                                       data-background="assets/img/about/shape/about-shape-1.png"></div>
+                                    <img src="assets/img/about/about-1.png" alt="">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-7">
+                           <div class="tp-about-desc">
+                              <div class="tp-about-award d-inline-block">
+                                 <div class="tp-about-award-icon d-inline-block mr-15">
+                                    <span>
+                                       <img src="assets/img/about/award-icon.svg" alt="">
+                                    </span>
+                                 </div>
+                                 <div class="tp-about-award-content d-inline-block">
+                                    <h4 class="tp-about-award-title">Independent Of The Year</h4>
+                                    <p>Annual Awards 2020 • awwwards.com</p>
+                                 </div>
+                              </div>
+                              <div class="tp-about-desc-content mb-40">
+                                 <p>Hello! We are <span>Dsquare Technologies</span> a self-taught & award-winning
+                                    <span>UI/UX Expert , Digital Designer & Developer</span> with over <span>fifteen
+                                       years of work experience</span>. I
+                                    started in my children’s room and got pro at renowned digital<span> nexum AG</span>
+                                    agencies.
+                                 </p>
+                              </div>
+                              <div class="tp-about-fact">
+                                 <div class="row">
+                                    <div class="col-md-4 col-sm-6 mb-30">
+                                       <div class="tp-about-fact-item">
+                                          <h4><span data-purecounter-duration="2" data-purecounter-end="80"
+                                                class="purecounter"></span>+</h4>
+                                          <p>Project Delivered</p>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 mb-30">
+                                       <div class="tp-about-fact-item">
+                                          <h4><span data-purecounter-duration="2" data-purecounter-end="10"
+                                                class="purecounter"></span>+</h4>
+                                          <p>Years of Experience</p>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 mb-30">
+                                       <div class="tp-about-fact-item">
+                                          <h4><span data-purecounter-duration="2" data-purecounter-end="70"
+                                                class="purecounter"></span>+</h4>
+                                          <p>Happy Clients</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- about area end -->
+
+            <!-- portfolio area start -->
+            <section class="tp-portfolio-area tp-btn-trigger-2 p-relative z-index-1 pt-80 pb-40 fix">
+
+               <div class="container">
+
+               </div>
+            </section>
+            <!-- portfolio area end -->
+
+            <!-- skill area start -->
+            <section class="tp-skill-area pt-115 pb-105 p-relative z-index-1 fix theme-bg-2"
+               data-background="assets/img/skill/bg-distort.png" id="skill">
+               <div class="tp-skill-shape">
+                  <span class="tp-skill-shape-1"></span>
+                  <span class="tp-skill-shape-2"></span>
+               </div>
+               <div class="container">
+                  <div class="row">
+                     <div class="col-xl-12">
+                        <div class="tp-skill-section-title">
+                           <div class="tp-section-title-wrapper tp_text_anim mb-30 text-center">
+                              <div class="tp-section-title-inner tp_title_anim p-relative">
+                                 <span class="tp-section-subtitle">Advantage</span>
+                                 <h3 class="tp-section-title">Skills & tools</h3>
+                              </div>
+                              <p>For those who know what they're looking for..</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-xl-12">
+                        <div class="tp-skill-tab tp-tab d-flex align-items-center justify-content-center mb-70">
+                           <nav>
+                              <div class="nav nav-tabs tp-marker-tab" id="nav-tab" role="tablist">
+                                 <button class="nav-link " id="nav-tech-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-tech" type="button" role="tab" aria-controls="nav-tech"
+                                    aria-selected="true">Tech</button>
+                                 <button class="nav-link active" id="nav-design-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-design" type="button" role="tab" aria-controls="nav-design"
+                                    aria-selected="false">Design</button>
+                                 <span id="lineMarker"></span>
+                              </div>
+                           </nav>
+
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-xl-12">
+                        <div class="tab-content" id="nav-tabContent">
+                           <div class="tab-pane fade " id="nav-tech" role="tabpanel" aria-labelledby="nav-tech-tab"
+                              tabindex="0">
+                              <div class="tp-skill-tab-content tp-skill-radius">
+                                 <div class="row">
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/php.png" alt="" width="50%">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>89</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">PHP</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/wp.png" alt="">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>95</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">WordPress</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/nodejs.png" alt="">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>60</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">Node js</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/html.png" alt="">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>97</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">HTML5</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/react-native.png" alt="" width="50%">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>65</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">React Native</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/Shopify.png" alt="" width="50%">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>68</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">Shopify</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade show active" id="nav-design" role="tabpanel"
+                              aria-labelledby="nav-design-tab" tabindex="0">
+                              <div class="tp-skill-tab-content tp-skill-radius">
+                                 <div class="row">
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/figma.png" alt="">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>94</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">Figma</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/scss.png" alt="" width="50%">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>82</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">Scss</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/css.png" alt="" width="35%">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>98</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">Css</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/bootstrap.png" alt="" width="50%">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>84</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">Bootstrap</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/photoshop.png" alt="">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>58</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">Photoshop</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-md-3 col-6">
+                                       <div class="tp-skill-item text-center">
+                                          <div
+                                             class="tp-skill-thumb d-flex align-items-center justify-content-center flex-column">
+                                             <div class="tp-skill-icon">
+                                                <span>
+                                                   <img src="assets/img/skill/canva.png" alt="" width="60%">
+                                                </span>
+                                             </div>
+                                             <h3 class="tp-skill-count"><span>64</span>%</h3>
+                                          </div>
+                                          <div class="tp-skill-content">
+                                             <h3 class="tp-skill-title">Canva</h3>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- skill area end -->
+
+            <!-- testimonial area start -->
+            <section class="tp-testimonial-area tp-bg-light pt-80 pb-80">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-xl-12">
+                        <div class="tp-testimonial-section-title">
+                           <div class="tp-section-title-wrapper tp_text_anim mb-50 text-center">
+                              <div class="tp-section-title-inner tp_title_anim p-relative">
+                                 <span class="tp-section-subtitle">Testimonials</span>
+                                 <h3 class="tp-section-title">What clients say</h3>
+                              </div>
+                              <p>Rated 4.9 out of 5 based on 768 reviews</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-xl-12">
+                        <div class="tp-testimonial-slider ml-70 mr-70">
+                           <div class="tp-testimonial-slider-active swiper-container fix">
+                              <div class="swiper-wrapper">
+                                 <div class="swiper-slide">
+                                    <div class="tp-testimonial-item theme-bg-2"
+                                       data-background="assets/img/testimonial/bg-distort.png">
+                                       <div class="tp-testimonial-quote">
+                                          <img src="assets/img/testimonial/quote.svg" alt="">
+                                       </div>
+                                       <div class="tp-testimonial-item-top d-flex align-items-center">
+                                          <div class="tp-testimonial-rating">
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                          </div>
+                                          <p>5.0 Rating</p>
+                                       </div>
+
+                                       <div class="tp-testimonial-content">
+                                          <p>"Will gave our website and brand whole new life while staying true to who
+                                             we are. We would never have thought of going in the direction he pitched
+                                             but we couldn't be happier."</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="swiper-slide">
+                                    <div class="tp-testimonial-item theme-bg-2"
+                                       data-background="assets/img/testimonial/bg-distort.png">
+                                       <div class="tp-testimonial-quote">
+                                          <img src="assets/img/testimonial/quote.svg" alt="">
+                                       </div>
+                                       <div class="tp-testimonial-item-top d-flex align-items-center">
+                                          <div class="tp-testimonial-rating">
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                          </div>
+                                          <p>5.0 Rating</p>
+                                       </div>
+
+                                       <div class="tp-testimonial-content">
+                                          <p>"Will gave our website and brand whole new life while staying true to who
+                                             we are. We would never have thought of going in the direction he pitched
+                                             but we couldn't be happier."</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="swiper-slide">
+                                    <div class="tp-testimonial-item theme-bg-2"
+                                       data-background="assets/img/testimonial/bg-distort.png">
+                                       <div class="tp-testimonial-quote">
+                                          <img src="assets/img/testimonial/quote.svg" alt="">
+                                       </div>
+                                       <div class="tp-testimonial-item-top d-flex align-items-center">
+                                          <div class="tp-testimonial-rating">
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                          </div>
+                                          <p>5.0 Rating</p>
+                                       </div>
+
+                                       <div class="tp-testimonial-content">
+                                          <p>"Will gave our website and brand whole new life while staying true to who
+                                             we are. We would never have thought of going in the direction he pitched
+                                             but we couldn't be happier."</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="swiper-slide">
+                                    <div class="tp-testimonial-item theme-bg-2"
+                                       data-background="assets/img/testimonial/bg-distort.png">
+                                       <div class="tp-testimonial-quote">
+                                          <img src="assets/img/testimonial/quote.svg" alt="">
+                                       </div>
+                                       <div class="tp-testimonial-item-top d-flex align-items-center">
+                                          <div class="tp-testimonial-rating">
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                             <span>
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                   xmlns="http://www.w3.org/2000/svg">
+                                                   <path
+                                                      d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z"
+                                                      fill="currentColor" />
+                                                </svg>
+                                             </span>
+                                          </div>
+                                          <p>5.0 Rating</p>
+                                       </div>
+
+                                       <div class="tp-testimonial-content">
+                                          <p>"Will gave our website and brand whole new life while staying true to who
+                                             we are. We would never have thought of going in the direction he pitched
+                                             but we couldn't be happier."</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="tp-testimonial-thumb-slider">
+                              <div class="tp-testimonial-nav swiper-container fix">
+                                 <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                       <div
+                                          class="tp-testimonial-user-item d-flex justify-content-center align-items-center">
+                                          <div class="tp-testimonial-user-thumb">
+                                             <img src="assets/img/users/user-1.jpg" alt="">
+                                          </div>
+                                          <div class="tp-testimonial-user-content">
+                                             <h3 class="tp-testimonial-user-title">Rudra Ghosh</h3>
+                                             <!-- <span class="tp-testimonial-user-designation">Founder & CEO at <a
+                                                   href="#">Dulalix</a></span> -->
+                                          </div>
+                                          <span class="tp-testimonial-user-border"></span>
+                                       </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                       <div
+                                          class="tp-testimonial-user-item d-flex justify-content-center align-items-center">
+                                          <div class="tp-testimonial-user-thumb">
+                                             <img src="assets/img/users/avata-1.png" alt="">
+                                          </div>
+                                          <div class="tp-testimonial-user-content">
+                                             <h3 class="tp-testimonial-user-title">Albert Flores</h3>
+                                             <!-- <span class="tp-testimonial-user-designation">Marketing Officer at <a
+                                                   href="#">Google lnc</a></span> -->
+                                          </div>
+                                          <span class="tp-testimonial-user-border"></span>
+                                       </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                       <div
+                                          class="tp-testimonial-user-item d-flex justify-content-center align-items-center">
+                                          <div class="tp-testimonial-user-thumb">
+                                             <img src="assets/img/users/avata-2.png" alt="">
+                                          </div>
+                                          <div class="tp-testimonial-user-content">
+                                             <h3 class="tp-testimonial-user-title">Robert Henricks</h3>
+                                             <!-- <span class="tp-testimonial-user-designation">UI/UX Designer at <a
+                                                   href="#">Webflow</a></span> -->
+                                          </div>
+                                          <span class="tp-testimonial-user-border"></span>
+                                       </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                       <div
+                                          class="tp-testimonial-user-item d-flex justify-content-center align-items-center">
+                                          <div class="tp-testimonial-user-thumb">
+                                             <img src="assets/img/users/avata-3.png" alt="">
+                                          </div>
+                                          <div class="tp-testimonial-user-content">
+                                             <h3 class="tp-testimonial-user-title">Farhan Firoz</h3>
+                                             <span class="tp-testimonial-user-designation">Founder & CEO at <a
+                                                   href="#">Dribbble</a></span>
+                                          </div>
+                                          <span class="tp-testimonial-user-border"></span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <!-- testimonial area end -->
+         </main>
+
+         <footer>
+
+            <div class="tp-footer-bg tp-footer-bg-light p-relative fix z-index-1 theme-bg-2"
+               data-background="assets/img/skill/bg-distort.png">
+               <div class="tp-footer-circle-1">
+                  <span></span>
+               </div>
+               <div class="tp-footer-circle-2">
+                  <span></span>
+               </div>
+               <div class="tp-footer-circle-3" data-speed=".7">
+                  <span></span>
+               </div>
+               <!-- footer area start -->
+               <div class="tp-footer-area pt-120 pb-80">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-xl-12">
+                           <div class="tp-footer-content text-center">
+                              <h3 class="tp-footer-title big tp_title_anim">Let's talk about <br> the next big thing
+                              </h3>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="tp-footer-btn-box">
+                        <div class="row">
+                           <div class="col-xl-6 col-lg-6 col-md-6">
+                              <div class="tp-footer-btn text-center ">
+                                 <a class="tp-btn-green w-100" href="contact.html">
+                                    <div>
+                                       <span>Write a Message</span>
+                                    </div>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="col-xl-6 col-lg-6 col-md-6">
+                              <div class="tp-footer-btn text-center ">
+                                 <a class="tp-btn-white-xl w-100" href="mailto:dsquaretechnologies45@gmail.com">
+                                    <div>
+                                       <span>Discuss Project</span>
+                                    </div>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row gx-50">
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                           <a href="#">
+                              <div class="tp-footer-social-item d-flex align-items-center justify-content-between">
+                                 <span class="tp-footer-anim-border"></span>
+                                 <div class="tp-footer-social-text z-index-1">
+                                    <span class="child-1">Behance</span>
+                                    <span class="child-2">@Dsquare_des</span>
+                                 </div>
+                                 <div class="tp-footer-social-icon z-index-1">
+                                    <span>
+                                       <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path
+                                             d="M1 6H6.83333C8.25 6 9.33333 7.08333 9.33333 8.5C9.33333 9.91667 8.25 11 6.83333 11H1.83333C1.33333 11 1 10.6667 1 10.1667V1.83333C1 1.33333 1.33333 1 1.83333 1H6C7.41667 1 8.5 2.08333 8.5 3.5C8.5 4.91667 7.41667 6 6 6H1Z"
+                                             stroke="currentcolor" stroke-width="1.5" stroke-miterlimit="10" />
+                                          <path
+                                             d="M10.9997 7.66634H17.6664C17.6664 5.83301 16.1664 4.33301 14.333 4.33301C12.4997 4.33301 10.9997 5.83301 10.9997 7.66634ZM10.9997 7.66634C10.9997 9.49967 12.4997 10.9997 14.333 10.9997H15.7497"
+                                             stroke="currentcolor" stroke-width="1.5" stroke-miterlimit="10"
+                                             stroke-linecap="round" stroke-linejoin="round" />
+                                          <path d="M15.5831 2.25H13.0831" stroke="currentcolor" stroke-width="1.5"
+                                             stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                       </svg>
+                                    </span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                           <a href="#">
+                              <div class="tp-footer-social-item d-flex align-items-center justify-content-between">
+                                 <span class="tp-footer-anim-border"></span>
+                                 <div class="tp-footer-social-text z-index-1">
+                                    <span class="child-1">Dribbble</span>
+                                    <span class="child-2">@Dsquare_des</span>
+                                 </div>
+                                 <div class="tp-footer-social-icon z-index-1">
+                                    <span>
+                                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path
+                                             d="M2.07295 12.9993C4.28172 16.825 9.17363 18.1358 12.9993 15.927C14.5588 15.0267 15.7003 13.6806 16.356 12.1425C17.3088 9.90737 17.2355 7.26695 15.927 5.00067C14.6186 2.73439 12.3686 1.35064 9.95647 1.05826C8.29667 0.857067 6.56009 1.17262 5.00067 2.07295C1.17497 4.28172 -0.135817 9.17363 2.07295 12.9993Z"
+                                             stroke="currentcolor" stroke-width="1.5" />
+                                          <path
+                                             d="M12.9595 15.8578C12.9595 15.8578 12.2084 10.5858 10.6004 7.80063C8.99241 5.01548 5.04119 2.14298 5.04119 2.14298M5.46266 16.0532C6.64777 12.478 12.5618 8.51493 16.8898 9.46439M12.5309 1.96875C11.3408 5.505 5.54035 9.41017 1.23254 8.56176"
+                                             stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" />
+                                       </svg>
+                                    </span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                           <a href="#">
+                              <div class="tp-footer-social-item d-flex align-items-center justify-content-between">
+                                 <span class="tp-footer-anim-border"></span>
+                                 <div class="tp-footer-social-text z-index-1">
+                                    <span class="child-1">Instagram</span>
+                                    <span class="child-2">@Dsquare_des</span>
+                                 </div>
+                                 <div class="tp-footer-social-icon z-index-1">
+                                    <span>
+                                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path
+                                             d="M11.5 1H4.5C2.567 1 1 2.567 1 4.5V11.5C1 13.433 2.567 15 4.5 15H11.5C13.433 15 15 13.433 15 11.5V4.5C15 2.567 13.433 1 11.5 1Z"
+                                             stroke="currentcolor" stroke-width="1.5" stroke-linecap="round"
+                                             stroke-linejoin="round" />
+                                          <path
+                                             d="M10.8002 7.55921C10.8866 8.14178 10.7871 8.73676 10.5158 9.25952C10.2446 9.78228 9.81539 10.2062 9.28932 10.471C8.76326 10.7358 8.1671 10.8279 7.58564 10.7344C7.00417 10.6408 6.46702 10.3663 6.05057 9.94982C5.63413 9.53338 5.3596 8.99622 5.26603 8.41476C5.17247 7.8333 5.26463 7.23714 5.52941 6.71107C5.7942 6.18501 6.21812 5.75583 6.74087 5.48458C7.26363 5.21333 7.85861 5.11382 8.44119 5.20021C9.03543 5.28833 9.58558 5.56524 10.0104 5.99003C10.4352 6.41482 10.7121 6.96496 10.8002 7.55921Z"
+                                             stroke="currentcolor" stroke-width="1.5" stroke-linecap="round"
+                                             stroke-linejoin="round" />
+                                          <path d="M11.8499 4.15137H11.8599" stroke="currentcolor" stroke-width="1.5"
+                                             stroke-linecap="round" stroke-linejoin="round" />
+                                       </svg>
+                                    </span>
+                                 </div>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- footer area end -->
+
+               <!-- copyright area start -->
+               <div class="tp-copyright-area pb-20">
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-xl-6 col-md-6">
+                           <div class="tp-copyright-content-left text-center text-md-start">
+                              <p>©2024 Dsquare Technologies, All Rights Reserved • <span>Credits</span></p>
+                           </div>
+                        </div>
+                        <div class="col-xl-6 col-md-6">
+                           <div class="tp-copyright-content-right text-center text-md-end">
+                              <span>2024 Portfolio</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- copyright area end -->
+            </div>
+
+         </footer>
+      </div>
+   </div>
+
+
+   <!-- JS here -->
+   <script src="assets/js/vendor/jquery.js"></script>
+   <script src="assets/js/bootstrap-bundle.js"></script>
+   <script src="assets/js/three.js"></script>
+   <script src="assets/js/gsap.js"></script>
+   <script src="assets/js/gsap-scroll-smoother.js"></script>
+   <script src="assets/js/gsap-scroll-trigger.js"></script>
+   <script src="assets/js/gsap-scroll-to-plugin.js"></script>
+   <script src="assets/js/gsap-split-text.js"></script>
+   <script src="assets/js/webgl.js"></script>
+
+   <script src="assets/js/swiper-bundle.js"></script>
+   <script src="assets/js/slick.js"></script>
+   <script src="assets/js/wow.js"></script>
+   <script src="assets/js/pagepiling.js"></script>
+   <script src="assets/js/headroom.min.js"></script>
+   <script src="assets/js/magnific-popup.js"></script>
+   <script src="assets/js/nice-select.js"></script>
+   <script src="assets/js/purecounter.js"></script>
+   <script src="assets/js/hammer.js"></script>
+   <script src="assets/js/matter.js"></script>
+   <script src="assets/js/throwable.js"></script>
+   <script src="assets/js/isotope-pkgd.js"></script>
+   <script src="assets/js/imagesloaded-pkgd.js"></script>
+   <script src="assets/js/ajax-form.js"></script>
+
+   <script src="assets/js/theme-settings.js"></script>
+   <script src="assets/js/animated-headline.js"></script>
+   <script src="assets/js/main.js"></script>
+   <script src="assets/js/tp-cursor.js"></script>
+
+   <script>
+      $(window).on('load', function () {
+         $('#ctn-preloader').addClass('loaded');
+         // Once the preloader is gone, allow scrolling
+         $('body').removeClass('no-scroll-y');
+
+         // Remove the preloader section after a delay
+         $('#preloader').delay(1000).queue(function () {
+            $(this).remove();
+         });
+      });
+
+   </script>
+
+
+</body>
+
+
+<!-- Mirrored from html.hixstudio.net/Dsquare-prev/Dsquare/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 May 2024 14:50:54 GMT -->
+
+</html>
